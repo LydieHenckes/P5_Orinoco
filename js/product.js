@@ -11,6 +11,17 @@ class Product {
 
 	render() {
 		document.getElementById('product-title').textContent = this.name;
+		document.getElementById('product-img').src = this.imageUrl;
+		document.getElementById('product-img').alt = `caméra ${this.name}`;
+		document.querySelector('.product-details__description').textContent = this.description;
+		document.querySelector('.product-details__price').textContent ='Prix: ' + this.price.toLocaleString()+' €';
+		let htmlSelect = '';
+		this.lenses.forEach(element => {
+			htmlSelect += `
+				<option value = '${element}' >${element}</option>
+			`;
+		});
+		document.getElementById('lenses').innerHTML = htmlSelect;
 	}
 }
 

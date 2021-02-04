@@ -1,0 +1,45 @@
+.product-title {
+	text-align: center;
+}
+.product {
+	display: flex;
+}
+
+.product-details {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 50%;
+	margin: 20px;
+	justify-content: space-between;
+	&-price{
+		justify-content: flex-start;
+	}
+	&__img{
+		
+		flex: 0 1 60%;
+		width: 100%;
+		min-height: 300px;
+		position: relative;
+		img{
+			position: absolute;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+	&__description{}
+
+	&__price{
+		margin-bottom: 30px;
+	}
+	&__lenses{
+		height: 30px;
+		margin-bottom: 30px;
+	}
+	&__buy{
+		padding: 10px;
+		
+	}
+}

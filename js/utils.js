@@ -21,3 +21,23 @@ function getProduct (id) {
 		})
 		.catch(err => console.log(err))
 }
+
+class LocalStorageUtil {
+	constructor() {
+		this.keyName = 'productsInCart';
+
+	}
+	getProductsInCart() {
+		const productsLocalStorage = localStorage.getItem(this.keyName);
+		if (productsLocalStorage !== null) {
+			return JSON.parse(productsLocalStorage);
+		} else {return []};
+	}
+	putProductInCart(element) {
+
+	}
+}
+
+const localStorageUtil = new LocalStorageUtil();
+const a = localStorageUtil.getProductsInCart();
+console.log(a);
