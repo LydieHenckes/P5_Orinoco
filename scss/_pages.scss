@@ -11,4 +11,11 @@ body {
 }
 header {
 	background-color: $color-header;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 20px;
+}
+.cart-counter{
+	justify-self: flex-end;
 }

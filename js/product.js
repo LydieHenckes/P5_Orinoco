@@ -10,10 +10,17 @@ class Product {
 		this.count = 0;
 	}
 
-	addProductToCart(event) {
+	addProductToCart(event) {    
 		let id = event.target.getAttribute("data-id");
-		addElementToCart(id);  //добавить элемент в корзину
-		//перерисовать кол-во, 
+	
+		let promise = addElementToCart(id);
+		console.log(promise);
+		promise.then(()=>{
+			let productsInCart = localStorageUtil.getCountOfProductsTypeInCart();
+			let allProductInCart = localStorageUtil.getCountOfProductsInCart();
+			cartPage.render(productsInCart, allProductInCart);		
+
+		});
 	
 	}
 

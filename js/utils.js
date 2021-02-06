@@ -21,8 +21,8 @@ function getProduct (id) {
 		.catch(err => console.log(err))
 }
 
-function addElementToCart(id) {
-	fetch('http://localhost:3000/api/cameras/' + id , {mode: "cors"})
+async function addElementToCart(id) {
+	await fetch('http://localhost:3000/api/cameras/' + id , {mode: "cors"})
 		.then(res => res.json())
 		.then(res => {
 
@@ -33,11 +33,25 @@ function addElementToCart(id) {
 		.catch(err => console.log(err))
 }
 
+
 class LocalStorageUtil {
 	constructor() {
 		this.keyName = 'productsInCart';
 
 	}
+	
+	getCountOfProductsTypeInCart() {
+		return this.getProductsInCart().length;
+	}
+	getCountOfProductsInCart(){
+		let count = 0;
+		let productsInCart = this.getProductsInCart();
+		productsInCart.forEach(item => {
+			count = count + item.count;
+		 });
+		return count;
+	}
+
 	getProductsInCart() {
 		const productsLocalStorage = localStorage.getItem(this.keyName);
 		if (productsLocalStorage !== null) {
@@ -57,14 +71,14 @@ class LocalStorageUtil {
 			if (item.id === id) {
 				findProduct = true;
 				item.count ++;
-				alert('déjà dans le panier');
+			//	alert('déjà dans le panier');
 			}
 		});
 		if (!findProduct) {
 			element.count = 1;
 			productsInCart.push(element);
 			pushProduct = true;
-			alert('ajout pour la première fois');
+		//	alert('ajout pour la première fois');
 		};
 
 
