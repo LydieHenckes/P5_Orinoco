@@ -1,5 +1,5 @@
 class Products {
- 
+
 	render(data) {
 		 
 		let htmlCatalog= '';
