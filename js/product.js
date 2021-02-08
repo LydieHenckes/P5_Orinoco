@@ -1,25 +1,30 @@
 class Product {
-	constructor(id, name, imageUrl, description, price, lenses){
+	constructor(id, name, imageUrl, description, price, lenses, lensSelected){
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.description = description;
 		this.price = price;
 		this.lenses = lenses;
-		this.lenseSeleted = '';
+		this.lensSelected = lensSelected;
 		this.count = 0;
 	}
 
 	addProductToCart(event) {    
 		let id = event.target.getAttribute("data-id");
-	
-		let promise = addElementToCart(id);
-		console.log(promise);
+		let lensSelected = localStorageUtil.getLensSelected();
+		
+		let promise = addElementToCart(id, lensSelected);
 		promise.then(()=>{
 			let productsInCart = localStorageUtil.getCountOfProductsTypeInCart();
 			let allProductInCart = localStorageUtil.getCountOfProductsInCart();
 			cartCountPage.showCartCount(productsInCart, allProductInCart);		
 		});
+	}
+
+	changeLenses(event) {
+		var selectedOption = event.target.value;
+		localStorageUtil.putLensSelected(selectedOption);
 	}
 
 	render() {
@@ -36,7 +41,9 @@ class Product {
 			`;
 		});
 		document.getElementById('lenses').innerHTML = htmlSelect;
-		
+		localStorageUtil.putLensSelected(this.lenses[0]);
+		document.getElementById('lenses').onchange = this.changeLenses;
+
 		document.getElementById('btn-buy').setAttribute("data-id", `${this.id}`);
 		document.getElementById('btn-buy').onclick = this.addProductToCart;
 	}
