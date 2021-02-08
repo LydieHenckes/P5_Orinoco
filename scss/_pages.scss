@@ -13,9 +13,18 @@ header {
 	background-color: $color-header;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	padding-right: 20px;
+	justify-content: flex-end;
+	
+	img {
+		justify-self: flex-start;
+		margin-right: auto;
+	}
 }
 .cart-counter{
-	justify-self: flex-end;
+	padding-right: 20px;
+	height: 100%;
+
+}
+.homepage {
+	padding-right: 20px;
 }

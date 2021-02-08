@@ -18,10 +18,8 @@ class Product {
 		promise.then(()=>{
 			let productsInCart = localStorageUtil.getCountOfProductsTypeInCart();
 			let allProductInCart = localStorageUtil.getCountOfProductsInCart();
-			cartPage.render(productsInCart, allProductInCart);		
-
+			cartCountPage.showCartCount(productsInCart, allProductInCart);		
 		});
-	
 	}
 
 	render() {
