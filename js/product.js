@@ -28,11 +28,16 @@ class Product {
 	}
 
 	render() {
+		const priceEur = new Intl.NumberFormat("fr", {
+			style: "currency",
+			currency: "EUR",
+			minimumFractionDigits: 2
+		}).format(this.price/100);
 		document.getElementById('product-title').textContent = this.name;
 		document.getElementById('product-img').src = this.imageUrl;
 		document.getElementById('product-img').alt = `caméra ${this.name}`;
 		document.querySelector('.product-details__description').textContent = this.description;
-		document.querySelector('.product-details__price').textContent ='Prix: ' + this.price.toLocaleString()+' €';
+		document.querySelector('.product-details__price').textContent ='Prix: ' + priceEur;
 	
 		let htmlSelect = '';
 		this.lenses.forEach(element => {
