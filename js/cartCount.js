@@ -1,6 +1,6 @@
 class CartCount {
 	showCartCount(count, allCount) {
-		document.getElementById('cart-counter').textContent = 'Articles : ' +count+ ', Quantité : '+allCount;
+		document.getElementById('cart-counter').textContent = 'Panier ('+allCount+')';
 	}
 }
 const cartCountPage = new CartCount();

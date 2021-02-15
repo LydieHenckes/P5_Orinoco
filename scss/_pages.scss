@@ -28,3 +28,68 @@ header {
 .homepage {
 	padding-right: 20px;
 }
+
+/*-------------------------------------------------*/
+.nav-link{
+	color: rgba($color: #000000, $alpha: 0.7)!important;
+	&:hover{
+		color: rgba($color: #000000, $alpha: 1)!important;
+	}
+}
+.present {
+	background: url("../img/bg-photos.jpg") no-repeat;
+	background-size: cover;
+
+	height: 300px;
+
+	margin-top: 75px;
+	position: relative;
+	&__background {
+		background-color: $color-header;
+		position: absolute;
+		top: 65%;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 10px 10px 5px 10px;
+		border-radius: 3px;
+
+		text-align: center;
+		h1 {
+			font-weight: 600;
+		}
+	}
+}
+
+@media (min-width: 992px) { 
+	.present{
+		height: 300px;
+	}
+}
+@media (min-width: 1200px) { 
+	.present{
+		height: 400px;
+	}
+}
+@media (min-width: 1400px) { 
+	.present{
+		height: 500px;
+	}
+ }
+
+  /*@include media-breakpoint-up(md) {
+	.present{
+		height: 300px;
+	}
+}*/
+/*@include media-breakpoint-up(lg) {
+	.present{
+		height: 400px;
+	}
+}*/
+
+/*
+@include media-breakpoint-up(xl) {
+	.present{
+		height: 500px;
+	}
+}*/
