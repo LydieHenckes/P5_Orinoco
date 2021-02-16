@@ -9,8 +9,8 @@ class Cart {
 		let productsInCart = localStorageUtil.getCountOfProductsTypeInCart();
 		let allProductInCart = localStorageUtil.getCountOfProductsInCart();
 		cartCountPage.showCartCount(productsInCart, allProductInCart);
-
 	}
+
 
 	render() {
 		const productsInCart = localStorageUtil.getProductsInCart();
@@ -29,14 +29,14 @@ class Cart {
 				currency: "EUR",
 				minimumFractionDigits: 2
 			}).format(sum/100);
-
+		
 			htmlProducts +=`
 				<tr>
 					<td class="cart-element__name">${name} / ${lensSelected}</td>
 					<td class="cart-element__count">${count} x </td>
 					<td class = "cart-element__price">${priceEur}</td>
 					<td class="cart-element__sum">${sumEur}</td>
-					<td><button class = cart-element__delete" 
+					<td><button class = "btn cart-element__delete" style="background-color: #d4c7d2;"
 						data-id ="${id}" data-lens ="${lensSelected}" 
 						onclick = "cartPage.deleteProduct(this)">Supprimer</button></td>
 				</tr>			
@@ -70,10 +70,27 @@ class Cart {
 			`;
 		};
 		document.getElementById('cart-pay').innerHTML = htmlButtonPay;
-
+		document.getElementById("cart-pay").addEventListener("click", () => {
+			document.getElementById("form-frame").classList.add("active");
+		});
 	}
 }
 
 const cartPage = new Cart();
-
 cartPage.render();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+	const formFrame = document.getElementById('form-frame');
+	const closeElement = document.getElementById('close');
+
+	closeElement.addEventListener('click', () =>{
+		formFrame.classList.remove("active");
+		cartPage.render();
+	});
+
+	const form = document.getElementById('form-confirmation');
+	
+
+});

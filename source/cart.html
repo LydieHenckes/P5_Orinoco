@@ -31,7 +31,67 @@
 	<main>
 		<div class = "cart-container" id = "cart-container">
 		</div>
-		<div id = "cart-pay"></div>
+		<div id = "cart-pay" class="btn col-12 col-md-6 mx-auto" ></div>
+
+		<!-- Forme de confirmation-->
+		<div class="form  fade p-3" id="form-frame">
+			
+			<form action="#" id="form-confirmation">
+				<div class="row">
+					<h3 class="col-11 form__title text-center">Pour finaliser votre commande, veuillez remplir le formulaire </h3>
+					<div class="col form__close text-end" id ="close"></div>
+				</div>
+				<div class="row form__item mb-3 ">
+					<div class="col-12">
+						<label for="inputFirstName" class="form-label">Prénom *</label>
+					<input type="text" class="form-control form__input" placeholder="Votre prénom" id="inputFirstName">
+					</div>
+				</div>
+
+				<div class="row form__item mb-3">
+					<div class="col-12">
+						<label for="inputLastName" class="form-label">Nom *</label>
+					   <input type="text" class="form-control form__input" placeholder="Votre nom" id="inputLastName">
+					</div>
+				</div>
+
+				<div class="row form__item mb-3">
+					<div class="col-12">
+						<label for="adress" class="form-label">Adresse *</label>
+ 						<input type="text" class="form-control form__input" placeholder="Votre adresse" id="adress">
+					</div>
+				</div>
+
+				<div class="row form__groupe">
+					<div class="col-12 col-md-6 form__item mb-3">
+						<label for="city" class="form-label">Ville *</label>
+						<input type="text" class="form-control form__input" placeholder="Votre ville" id="city">
+					</div>
+					<div class="col-12 col-md-6 form__item mb-3">
+						<label for="codePostal" class="form-label">Code Postal *</label>
+						<input type="number" class="form-control form__input" placeholder="123456" id="codePostal">
+					</div>
+				</div>
+
+				<div class="row form__item mb-3">
+					<div class="col-12">
+						<label for="emal" class="form-label">E-mail *</label>
+ 						<input type="emal" class="form-control form__input" placeholder="votreadressemail@exemple.com" id="email">
+					</div>
+				</div>
+				<div class="row form__item mb-3">
+					<div class="checkbox col-12">
+						<input id ="formAgreement" checked type="checkbox" name="agreement" class="checkbox__input">
+						<label for="formAgreement" class="form__label">J'accepte les <a href="">termes et conditions.</a>	</label>
+					</div>
+				</div>
+				<div class="form__button mb-2">
+					<button class="btn btn-secondary btn-lg mx-auto" type = "submit">Valider la commande</button>
+				</div>
+			</form>
+		</div>
+
+
 	</main>
 	<script type="text/javascript" src="../js/utils.js"></script>
 	<script type="text/javascript" src="../js/cartCount.js"></script>

@@ -233,7 +233,6 @@ a {
 }
 
 .product-details__lenses {
-  height: 30px;
   margin-bottom: 30px;
 }
 
@@ -267,6 +266,11 @@ a {
   width: 150px;
 }
 
+.cart-element__delete:hover {
+  -webkit-box-shadow: 5px 5px 5px  #928190;
+          box-shadow: 5px 5px 5px  #928190;
+}
+
 .cart-element__allsum {
   padding: 20px;
   font-weight: bold;
@@ -290,4 +294,71 @@ a {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+}
+
+.cart-pay:hover {
+  -webkit-box-shadow: 5px 5px 5px  #928190;
+          box-shadow: 5px 5px 5px  #928190;
+}
+
+.form {
+  width: 95%;
+  position: fixed;
+  top: 3%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 2px solid gray;
+  border-radius: 3px;
+  opacity: 0;
+  z-index: -100;
+  background-color: #F3E9F1;
+}
+
+.form.active {
+  opacity: 1;
+  z-index: 100;
+}
+
+.form__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form__button button:hover {
+  -webkit-box-shadow: 5px 5px 5px  #928190;
+          box-shadow: 5px 5px 5px  #928190;
+}
+
+.form__close {
+  color: gray;
+  height: 35px;
+  width: 35px;
+  background-image: url(../img/cancel.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .form {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .form {
+    width: 60%;
+  }
 }

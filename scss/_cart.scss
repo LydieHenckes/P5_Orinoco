@@ -22,6 +22,9 @@
 
 	width: 150px;
 }
+.cart-element__delete:hover {
+	box-shadow:5px 5px 5px  #928190;
+}
 .cart-element__allsum{
 	padding: 20px;
 	font-weight: bold;
@@ -38,4 +41,59 @@
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	&:hover{
+		box-shadow:5px 5px 5px  #928190;
+	}
 }
+//////////////////
+
+.form {
+
+	width: 95%;
+	position: fixed;
+	top: 3%;
+	left: 50%;
+	transform: translateX(-50%);
+
+	border: 2px solid gray;
+	border-radius: 3px;
+	opacity: 0;
+	z-index: -100;
+	background-color: $color-text-light;
+	&.active {
+		opacity: 1;
+		z-index: 100;
+  }
+  &__button {
+	  display: flex;
+	  justify-content: center;
+	  button:hover {
+		  box-shadow:5px 5px 5px  #928190;
+	  }
+  }
+  &__close{
+	  color:gray;
+	  height: 35px;
+	  width: 35px;
+	  background-image: url(../img/cancel.svg);
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  cursor: pointer;
+  }
+}
+@media (min-width: 992px) { 
+	.form{
+		width: 85%;
+	}
+}
+@media (min-width: 1200px) { 
+	.form{
+		width: 75%;
+	}
+}
+@media (min-width: 1400px) { 
+	.form{
+		width: 60%;
+	}
+ }
