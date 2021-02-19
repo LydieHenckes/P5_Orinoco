@@ -4,7 +4,7 @@ class Products {
 		 
 		let htmlCatalog= '';
 		data.forEach(({ _id, name, price, imageUrl, description}) => {
-			const pageUrl = 'source/product.html?='+_id;
+			const pageUrl = 'source/product.html?id='+_id;
 			const priceEur = new Intl.NumberFormat("fr", {
 				style: "currency",
 				currency: "EUR",

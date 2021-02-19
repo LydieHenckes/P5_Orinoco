@@ -55,14 +55,17 @@ class Product {
 }
 
 let productId;
-// let productId1 = new URL(window.location.href).searchParams.get('id');
+
 let url = new URL(window.location.href);
+productId = (url).searchParams.get('id');
 
-console.log(url.searchParams.get('id')); // Pourquoi????
+//console.log((url)); // Pourquoi????
+//console.log(productId1);
 
-productId = url.search.slice(2);
 
-console.log(productId);
+//url.search.slice(2);
+
+console.log(productId);//
 
 getProduct(productId);
 

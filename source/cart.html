@@ -44,39 +44,39 @@
 				<div class="row form__item mb-3 ">
 					<div class="col-12">
 						<label for="inputFirstName" class="form-label">Prénom *</label>
-					<input type="text" class="form-control form__input" placeholder="Votre prénom" id="inputFirstName">
+					<input type="text" class="form-control form__input" placeholder="Votre prénom" name="firstName" id="inputFirstName" pattern="[a-zA-ZÀ-ÿ-\s]+" required>
 					</div>
 				</div>
 
 				<div class="row form__item mb-3">
 					<div class="col-12">
 						<label for="inputLastName" class="form-label">Nom *</label>
-					   <input type="text" class="form-control form__input" placeholder="Votre nom" id="inputLastName">
+					   <input type="text" class="form-control form__input" placeholder="Votre nom" name="lastName" id="inputLastName" pattern="[a-zA-ZÀ-ÿ-\s]+" required>
 					</div>
 				</div>
 
 				<div class="row form__item mb-3">
 					<div class="col-12">
-						<label for="adress" class="form-label">Adresse *</label>
- 						<input type="text" class="form-control form__input" placeholder="Votre adresse" id="adress">
+						<label for="address" class="form-label">Adresse *</label>
+ 						<input type="text" class="form-control form__input" placeholder="Votre adresse" name="address" id="address" required pattern="[#.0-9a-zA-Z\s,-]+">
 					</div>
 				</div>
 
 				<div class="row form__groupe">
 					<div class="col-12 col-md-6 form__item mb-3">
 						<label for="city" class="form-label">Ville *</label>
-						<input type="text" class="form-control form__input" placeholder="Votre ville" id="city">
+						<input type="text" class="form-control form__input" placeholder="Votre ville" name="city" pattern="[a-zA-ZÀ-ÿ-\s]+" id="city" required>
 					</div>
 					<div class="col-12 col-md-6 form__item mb-3">
 						<label for="codePostal" class="form-label">Code Postal *</label>
-						<input type="number" class="form-control form__input" placeholder="123456" id="codePostal">
+						<input type="text" class="form-control form__input" placeholder="123456" name="codePostal" id="codePostal" pattern="[0-9]+" required>
 					</div>
 				</div>
 
 				<div class="row form__item mb-3">
 					<div class="col-12">
 						<label for="emal" class="form-label">E-mail *</label>
- 						<input type="emal" class="form-control form__input" placeholder="votreadressemail@exemple.com" id="email">
+ 						<input type="emal" class="form-control form__input" placeholder="votreadressemail@exemple.com" name="email" id="email" pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})">
 					</div>
 				</div>
 				<div class="row form__item mb-3">

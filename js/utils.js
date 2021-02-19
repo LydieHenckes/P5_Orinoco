@@ -1,3 +1,4 @@
+//Récupère la liste des produits grâce à une requette fetch et appelle fonction render décrit dans index.js avec les données récupérées
 function getProducts () {
 	fetch('http://localhost:3000/api/cameras')
 	.then(res => res.json())
@@ -5,11 +6,13 @@ function getProducts () {
 
 		render(body);
 	})
-	.catch(error => {
-		console.log(error)
+	.catch(err => {
+		console.log(err)
 	});
 }
 
+//récupère un produit correspondant au parametre id, crée l'exemplaire de classe Product et appelle sa fonction render pour l'afficher 
+//class Product - product.js
 function getProduct (id) {  
 	fetch('http://localhost:3000/api/cameras/' + id , {mode: "cors"})
 		.then(res => res.json())	
@@ -22,12 +25,35 @@ function getProduct (id) {
 		.catch(err => console.log(err))
 }
 
+//envoye l'objet order, qui contient un objet contact et array products, saufgarde l'id de order retourné 
+async function sendOrder(order, orderSum) {
+	await fetch('http://localhost:3000/api/cameras/order', {
+		method: "POST",
+		headers: {
+		"Content-Type": "application/json"
+		},
+		body: JSON.stringify(order)
+		})
+		.then(res => res.json())
+		.then(res => {
+			 console.log('reponse de server', res);
+			// saufgarder orderDetails dans localStorage
+			let orderDetails = {
+				orderId: res.orderId,
+				orderSum: orderSum,
+				orderUser: res.contact.firstName
+			};
+			localStorageUtil.putOrderDetails(orderDetails);
+			console.log('Детали заказа', orderDetails);
+		})
+		.catch(err => console.log(err))
+}
+
 async function addElementToCart(id, lensSelected) {
 	await fetch('http://localhost:3000/api/cameras/' + id , {mode: "cors"})
 		.then(res => res.json())
 		.then(res => {
 			let product = new Product (res._id, res.name, res.imageUrl, res.description, res.price, res.lenses, lensSelected);
-
 			localStorageUtil.putProductInCart(product);
 		})
 		.catch(err => console.log(err))
@@ -37,10 +63,7 @@ async function addElementToCart(id, lensSelected) {
 }
 
 function deleteElementFromCart(id, lens) {
-
 	localStorageUtil.deleteProductFromCart(id, lens);
-	//render cart
-	
 }
 
 
@@ -48,7 +71,7 @@ class LocalStorageUtil {
 	constructor() {
 		this.keyName = 'productsInCart';
 		this.keyLensSelected = 'lensSelected';
-
+		this.keyOrder = 'orderDetails';
 	}
 	
 	getCountOfProductsTypeInCart() {
@@ -103,6 +126,9 @@ class LocalStorageUtil {
 		}
 		localStorage.setItem(this.keyName, JSON.stringify(productsInCart));
 	}
+	deleteAllProductsFromCart() {
+		localStorage.removeItem(this.keyName);
+	};
 
 	getLensSelected() {
 		const lensSeleted = localStorage.getItem(this.keyLensSelected);
@@ -114,14 +140,40 @@ class LocalStorageUtil {
 	putLensSelected(value) {
 		let lensSelected = this.getLensSelected();
 		if (lensSelected !== value) {
-			
 			localStorage.removeItem(this.keyLensSelected);
 			localStorage.setItem(this.keyLensSelected, value);
 		};
 	}
+	deleteLensSelected() {
+		localStorage.removeItem(this.keyLensSelected);
+	};
 
+	getOrderDetails() {
+		const orderDetails = localStorage.getItem(this.keyOrder);
+		console.log(orderDetails);
+		if (orderDetails !== null) {
+			return JSON.parse(orderDetails);
+		} else {return ''};
+	}
 
+	putOrderDetails(value) {
+		let orderDetails = this.getOrderDetails();
+		console.log('Pomestit1 ',orderDetails);
+		console.log('Pomestit2 ', value);
+		if (orderDetails ==='') {
+			localStorage.setItem(this.keyOrder, JSON.stringify(value));
+		} else {
+			localStorage.removeItem(this.keyOrder);
+			localStorage.setItem(this.keyOrder, JSON.stringify(value));
+		};
+	}
+
+	deleteOrderDetails() {
+		const orderDetails = localStorage.getItem(this.keyOrder);
+		if (orderDetails !== null) {
+			localStorage.removeItem(this.keyOrder);
+		};
+	}
 }
-
 
 const localStorageUtil = new LocalStorageUtil();

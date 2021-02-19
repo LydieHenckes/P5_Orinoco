@@ -45,17 +45,17 @@ header {
 	margin-top: 75px;
 	position: relative;
 	&__background {
-		background-color: $color-header;
-		position: absolute;
-		top: 65%;
-		left: 50%;
-		transform: translateX(-50%);
-		padding: 10px 10px 5px 10px;
-		border-radius: 3px;
+		display: flex;
 
+		padding: 10px 10px 5px 10px;
+
+		justify-content: center;
+		align-items: center;
+		height: 100%;
 		text-align: center;
 		h1 {
-			font-weight: 600;
+	//		font-weight: 600;
+			color: $color-text-light;
 		}
 	}
 }
@@ -76,8 +76,6 @@ header {
 	}
  }
 
- 
-
   /*@include media-breakpoint-up(md) {
 	.present{
 		height: 300px;
@@ -95,3 +93,15 @@ header {
 		height: 500px;
 	}
 }*/
+
+/*---------------------------*/
+#order-details {
+	background: url("../img/bg-photos.jpg") no-repeat;
+	background-size: cover;
+	height: 100vh;
+	color: $color-text-light;
+	padding-top: 30vh;
+}
+.order-details__text{
+	font-size: 20px;
+}
