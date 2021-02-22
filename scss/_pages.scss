@@ -1,35 +1,21 @@
-* {
-	box-sizing: border-box;
-}
+//* {
+//	box-sizing: border-box;
+//}
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-	line-height: 1.7;
-	background-color: #f8f9fa;
+//	margin: 0;
+//	padding: 0;
+//	line-height: 1.7;
+//	background-color: #f8f9fa;
 }
-header {
-	background-color: $color-header;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	
-	img {
-		justify-self: flex-start;
-		margin-right: auto;
-	}
-}
+
 .cart-counter{
-	padding-right: 20px;
-	height: 100%;
+//	padding-right: 20px;
+//	height: 100%;
 
 }
-.homepage {
-	padding-right: 20px;
-}
 
-/*-------------------------------------------------*/
+/*------------------Page index.html-------------------------------*/
 .nav-link{
 	color: rgba($color: #000000, $alpha: 0.7)!important;
 	&:hover{
@@ -54,7 +40,6 @@ header {
 		height: 100%;
 		text-align: center;
 		h1 {
-	//		font-weight: 600;
 			color: $color-text-light;
 		}
 	}
@@ -76,25 +61,19 @@ header {
 	}
  }
 
-  /*@include media-breakpoint-up(md) {
-	.present{
-		height: 300px;
-	}
-}*/
-/*@include media-breakpoint-up(lg) {
-	.present{
-		height: 400px;
-	}
-}*/
-
-/*
-@include media-breakpoint-up(xl) {
-	.present{
-		height: 500px;
-	}
-}*/
-
-/*---------------------------*/
+ /* ---------Page index - error css-----*/
+.error-container {
+	display: flex;
+	justify-content: center;
+	background-color: $color-text-light;
+}
+.error-message {
+	padding: 20px 20px 0px 20px;
+	background-color: $color-error-message;
+	text-align: center;
+	width: 60%;
+}
+ /*----------Page de la confirmation-----------------*/
 #order-details {
 	background: url("../img/bg-photos.jpg") no-repeat;
 	background-size: cover;
@@ -105,3 +84,4 @@ header {
 .order-details__text{
 	font-size: 20px;
 }
+

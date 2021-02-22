@@ -1,11 +1,16 @@
 .cart-container{
 	width: 95%;
-	padding: 30px;
+//	padding: 10px;
+}
+@media (min-width: 768px) { 
+	.cart-container{
+		//padding: 20px;
+	}
 }
 .cart-element__name {
-	padding: 20px;
+	padding-left: 10px;
 	font-weight: bold;
-	width: 300px;
+	width: 250px;
 }
 
 .cart-count {
@@ -31,7 +36,6 @@
 	width: 150px;
 }
 .cart-pay {
-	border: 1px solid #999999;
 	border-radius: 3px;
 	width: 200px;
 	height: 50px;
@@ -45,10 +49,9 @@
 		box-shadow:5px 5px 5px  #928190;
 	}
 }
-//////////////////
+/**********/
 
 .form {
-
 	width: 95%;
 	position: absolute;
 	top: 3%;
@@ -58,15 +61,17 @@
 	border: 2px solid gray;
 	border-radius: 3px;
 	opacity: 0;
-	z-index: -100;
+	visibility: hidden;
+	transition: all 0.5s ease 0s;
 	background-color: $color-text-light;
 	&.active {
 		opacity: 1;
-		z-index: 100;
+		visibility: visible;
   }
   &__button {
 	  display: flex;
 	  justify-content: center;
+	  transition: all 0.5s ease 0s;
 	  button:hover {
 		  box-shadow:5px 5px 5px  #928190;
 	  }
@@ -82,16 +87,11 @@
 	  cursor: pointer;
   }
 }
-
-form__input:valid {
-   box-shadow: 0 0 2px 1px green;
-}
 ._alert {
    box-shadow: 0 0 2px 1px red;
    border-color: #DD2C00!important;
  
 }
-
 @media (min-width: 992px) { 
 	.form{
 		width: 85%;

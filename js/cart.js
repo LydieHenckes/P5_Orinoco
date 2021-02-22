@@ -27,16 +27,20 @@ class Cart {
 				currency: "EUR",
 				minimumFractionDigits: 2
 			}).format(sum/100);
+					//<i class="bi bi-trash"></i>		
 		
 			htmlProducts +=`
 				<tr>
-					<td class="cart-element__name">${name} / ${lensSelected}</td>
+					<td class="cart-element__name">
+						<div>${name}</div>
+						<span>${lensSelected}</span>
+					</td>
 					<td class="cart-element__count">${count} x </td>
 					<td class = "cart-element__price">${priceEur}</td>
 					<td class="cart-element__sum">${sumEur}</td>
 					<td><button class = "btn cart-element__delete" style="background-color: #d4c7d2;"
 						data-id ="${id}" data-lens ="${lensSelected}" 
-						onclick = "cartPage.deleteProduct(this)">Supprimer</button></td>
+						onclick = "cartPage.deleteProduct(this)"><i class="far fa-trash-alt"></i></button></td>
 				</tr>			
 			`;
 			sumTotal += price*count;
@@ -48,17 +52,28 @@ class Cart {
 			minimumFractionDigits: 2
 		}).format(sumTotal/100);
 
+		let text;
+		let textSumTotal;
+		if (productsInCart.length === 0) {
+			text = 'Votre panier est vide!';
+			textSumTotal = '';
+		} else {
+			text = 'Total';
+			textSumTotal = sumTotalEur;
+
+		}
 		const html = `
 			<div>
 				<table>
 					${htmlProducts}
-					<td class = "cart-element__name">Total</td>
+					<td class = "cart-element__name">${text}</td>
 					<td class="cart-element__count"></td>
 					<td class="cart-element__sum"></td>
-					<td class = "cart-element__allsum">${sumTotalEur}</td>
+					<td class = "cart-element__allsum" id="sumTotalEur">${textSumTotal}</td>
 				</table>
 			<div>
 		`;
+	
 		document.getElementById('cart-container').innerHTML = html;
 
 		let htmlButtonPay = `	`;
@@ -182,14 +197,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		//les Id des produits
 		const productsInCart = localStorageUtil.getProductsInCart();
 		let products = productsInCart.map(item => item.id);
-//		console.log('массив: ', products);
 		let orderSum = 0;
 		productsInCart.forEach(item => {
 			orderSum += item.price;
 		});
-	//	console.log('Сумма заказа', orderSum);
+
 		let order = {contact, products};
-//		console.log('zakaz', order);
+		// supprimer l'ancien order id
+		localStorageUtil.deleteOrderDetails();
+		
 		await sendOrder(order, orderSum);
 
 		

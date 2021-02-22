@@ -1,23 +1,8 @@
-.product-title {
-	text-align: center;
+.wrapper{
+	position: relative;
 }
-.product {
-	display: flex;
-}
-
 .product-details {
-	display: flex;
-	flex-direction: column;
-	flex: 1 1 50%;
-	margin: 20px;
-	justify-content: space-between;
-	&-price{
-		justify-content: flex-start;
-	}
 	&__img{
-		
-		flex: 0 1 60%;
-		width: 100%;
 		min-height: 300px;
 		position: relative;
 		img{
@@ -29,17 +14,14 @@
 			left: 0;
 		}
 	}
-	&__description{}
-
 	&__price{
-		margin-bottom: 30px;
+		display: block;
+		margin-bottom: 20px;
 	}
 	&__lenses{
-	//	height: 30px;
 		margin-bottom: 30px;
 	}
-	&__buy{
-		padding: 10px;
-		
+	button {
+		width: 100%;
 	}
 }

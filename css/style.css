@@ -1,44 +1,4 @@
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  line-height: 1.7;
-  background-color: #f8f9fa;
-}
-
-header {
-  background-color: #d4c7d2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-header img {
-  justify-self: flex-start;
-  margin-right: auto;
-}
-
-.cart-counter {
-  padding-right: 20px;
-  height: 100%;
-}
-
-.homepage {
-  padding-right: 20px;
-}
-
-/*-------------------------------------------------*/
+/*------------------Page index.html-------------------------------*/
 .nav-link {
   color: rgba(0, 0, 0, 0.7) !important;
 }
@@ -92,23 +52,25 @@ header img {
   }
 }
 
-/*@include media-breakpoint-up(md) {
-	.present{
-		height: 300px;
-	}
-}*/
-/*@include media-breakpoint-up(lg) {
-	.present{
-		height: 400px;
-	}
-}*/
-/*
-@include media-breakpoint-up(xl) {
-	.present{
-		height: 500px;
-	}
-}*/
-/*---------------------------*/
+/* ---------Page index - error css-----*/
+.error-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #F3E9F1;
+}
+
+.error-message {
+  padding: 20px 20px 0px 20px;
+  background-color: #dd7d7d;
+  text-align: center;
+  width: 60%;
+}
+
+/*----------Page de la confirmation-----------------*/
 #order-details {
   background: url("../img/bg-photos.jpg") no-repeat;
   background-size: cover;
@@ -192,44 +154,11 @@ a {
    text-decoration: none;
 }
 */
-.product-title {
-  text-align: center;
-}
-
-.product {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.product-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
-  margin: 20px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.product-details-price {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+.wrapper {
+  position: relative;
 }
 
 .product-details__img {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 60%;
-          flex: 0 1 60%;
-  width: 100%;
   min-height: 300px;
   position: relative;
 }
@@ -245,26 +174,26 @@ a {
 }
 
 .product-details__price {
-  margin-bottom: 30px;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .product-details__lenses {
   margin-bottom: 30px;
 }
 
-.product-details__buy {
-  padding: 10px;
+.product-details button {
+  width: 100%;
 }
 
 .cart-container {
   width: 95%;
-  padding: 30px;
 }
 
 .cart-element__name {
-  padding: 20px;
+  padding-left: 10px;
   font-weight: bold;
-  width: 300px;
+  width: 250px;
 }
 
 .cart-count {
@@ -294,7 +223,6 @@ a {
 }
 
 .cart-pay {
-  border: 1px solid #999999;
   border-radius: 3px;
   width: 200px;
   height: 50px;
@@ -317,6 +245,7 @@ a {
           box-shadow: 5px 5px 5px  #928190;
 }
 
+/**********/
 .form {
   width: 95%;
   position: absolute;
@@ -327,13 +256,15 @@ a {
   border: 2px solid gray;
   border-radius: 3px;
   opacity: 0;
-  z-index: -100;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
   background-color: #F3E9F1;
 }
 
 .form.active {
   opacity: 1;
-  z-index: 100;
+  visibility: visible;
 }
 
 .form__button {
@@ -343,6 +274,8 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .form__button button:hover {
@@ -359,11 +292,6 @@ a {
   background-position: center center;
   background-size: contain;
   cursor: pointer;
-}
-
-form__input:valid {
-  -webkit-box-shadow: 0 0 2px 1px green;
-          box-shadow: 0 0 2px 1px green;
 }
 
 ._alert {

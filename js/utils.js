@@ -1,28 +1,32 @@
 //Récupère la liste des produits grâce à une requette fetch et appelle fonction render décrit dans index.js avec les données récupérées
 function getProducts () {
-	fetch('http://localhost:3000/api/cameras')
+	fetch('http://localhost:3000/api/cameras')		//	if (window.fetch) {} else {}
 	.then(res => res.json())
 	.then(body => {
 
 		render(body);
 	})
 	.catch(err => {
-		console.log(err)
+		errorPage.renderErrorProducts();
+		console.log(err);
 	});
 }
 
 //récupère un produit correspondant au parametre id, crée l'exemplaire de classe Product et appelle sa fonction render pour l'afficher 
 //class Product - product.js
 function getProduct (id) {  
-	fetch('http://localhost:3000/api/cameras/' + id , {mode: "cors"})
+	fetch('http://localhost:3000/api/cameras/' + id , {mode: "cors"}) //
 		.then(res => res.json())	
 		.then(res => {
 			//afficher l'élément
-
 			let product = new Product (res._id, res.name, res.imageUrl, res.description, res.price, res.lenses);
 			product.render();
 		})
-		.catch(err => console.log(err))
+		.catch(err => {
+			console.log(err);
+			errorPage.renderErrorProduct();
+		});
+
 }
 
 //envoye l'objet order, qui contient un objet contact et array products, saufgarde l'id de order retourné 
@@ -36,7 +40,6 @@ async function sendOrder(order, orderSum) {
 		})
 		.then(res => res.json())
 		.then(res => {
-			 console.log('reponse de server', res);
 			// saufgarder orderDetails dans localStorage
 			let orderDetails = {
 				orderId: res.orderId,
@@ -44,7 +47,6 @@ async function sendOrder(order, orderSum) {
 				orderUser: res.contact.firstName
 			};
 			localStorageUtil.putOrderDetails(orderDetails);
-			console.log('Детали заказа', orderDetails);
 		})
 		.catch(err => console.log(err))
 }

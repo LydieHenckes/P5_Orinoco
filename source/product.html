@@ -28,31 +28,32 @@
 		</div>
 	</nav>
 
-	<main>
-		
-		<h1 class="product-title" id = "product-title">
-
-		</h1>
-		<div class="product">
-			<div class="product-details">
-				<div class="product-details__img">
-					<img id = "product-img" src="" alt="">
-				</div>
-				<p class="product-details__description">
-
-				</p>
+	<main class="wrapper">
+		<div class="container">
+			<div class="row">
+				<h1 class="product-title mt-3 ps-3" id = "product-title"></h1>
 			</div>
-			<div class="product-details product-details-price">
-				<span class="product-details__price"></span>
-				<select class="product-details__lenses form-select" name="" id="lenses"></select>
-				<button class="product-details__buy" id = "btn-buy">Ajouter au panier</button>
+			<div class="row">
+				<div class="col-12 col-md-6 product-details">
+					<div class="product-details__img mb-3">
+						<img id = "product-img" src="" alt="">
+					</div>
+					<p class="product-details__description">
+					</p>
+				</div>
+				<div class="col-12 col-md-6 product-details mb-3">
+						<span class="product-details__price"></span>
+						<select class="product-details__lenses form-select" name="" id="lenses"></select>
+						<button class="btn btn-secondary" id = "btn-buy">Ajouter au panier</button>
+				</div>
 			</div>
 		</div>
+		<div id="error-container"></div>
 		
 	</main>
 	<script type="text/javascript" src="../js/utils.js"></script>
 	<script type="text/javascript" src="../js/cartCount.js"></script>
-
+	<script type="text/javascript" src="../js/error.js"></script>
 	<script type="text/javascript" src="../js/product.js"></script>
 	
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
