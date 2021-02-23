@@ -1,3 +1,5 @@
+/*--------- Classe CartCount-------------- */
+// 
 class CartCount {
 	showCartCount(count, allCount) {
 		document.getElementById('cart-counter').textContent = 'Panier ('+allCount+')';

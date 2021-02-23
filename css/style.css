@@ -19,13 +19,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 10px 5px 10px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px 10px 5px 10px;
   height: 100%;
   text-align: center;
 }
@@ -114,46 +114,6 @@
   width: 100%;
 }
 
-/*.products-title{
-	font-size: 20px;
-	text-align: center;
-}
-.products-container{
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 45px;
-	width: 80%;
-	max-width: 1240px;
-	margin: auto;
-	padding: 20px 0px;
-}
-.products-element {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	padding: 25px 20px;
-	border: 1px solid #999999;
-	border-radius: 3px;
-	
-}
-.products-element__name{
-	font-weight: 700;
-}
-.products-element__img {
-	width: 100%;
-	height: 250px;
-	object-fit: contain;
-}
-
-.products-element__price{
-	font-weight: 600;
-}
-
-a {
-	color: #000 !important;
-   text-decoration: none;
-}
-*/
 .wrapper {
   position: relative;
 }
@@ -187,39 +147,29 @@ a {
 }
 
 .cart-container {
+  margin: auto;
   width: 95%;
 }
 
-.cart-element__name {
-  padding-left: 10px;
-  font-weight: bold;
-  width: 250px;
+@media (min-width: 768px) {
+  .cart-container {
+    width: 80%;
+  }
 }
 
-.cart-count {
-  padding: 20px;
-  width: 150px;
+@media (min-width: 992px) {
+  .cart-container {
+    width: 70%;
+  }
 }
 
-.cart-element__price {
-  padding: 20px;
-  width: 150px;
+.cart-element__name span {
+  font-size: 0.9rem;
 }
 
-.cart-element__sum {
-  padding: 20px;
-  width: 150px;
-}
-
-.cart-element__delete:hover {
-  -webkit-box-shadow: 5px 5px 5px  #928190;
-          box-shadow: 5px 5px 5px  #928190;
-}
-
-.cart-element__allsum {
-  padding: 20px;
-  font-weight: bold;
-  width: 150px;
+.cart-element__delete-btn:hover {
+  -webkit-box-shadow: 5px 5px 5px #928190;
+          box-shadow: 5px 5px 5px #928190;
 }
 
 .cart-pay {
@@ -241,8 +191,8 @@ a {
 }
 
 .cart-pay:hover {
-  -webkit-box-shadow: 5px 5px 5px  #928190;
-          box-shadow: 5px 5px 5px  #928190;
+  -webkit-box-shadow: 5px 5px 5px #928190;
+          box-shadow: 5px 5px 5px #928190;
 }
 
 /**********/

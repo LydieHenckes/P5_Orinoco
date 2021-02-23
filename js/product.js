@@ -51,6 +51,7 @@ class Product {
 
 		document.getElementById('btn-buy').setAttribute("data-id", `${this.id}`);
 		document.getElementById('btn-buy').onclick = this.addProductToCart;
+		document.title = `Orinoco | ${this.name}`
 	}
 }
 

@@ -1,13 +1,21 @@
+// quand la page s'est chargée
 document.addEventListener("DOMContentLoaded", () => {
+	// récupération des details de la commande, saufgardés dans LocalStorage
 	const orderDetails = localStorageUtil.getOrderDetails();
-	console.log(orderDetails);
-	if (orderDetails !== '') {
+	
+	// ce contrôle (orderDetails !== '') est nécessaire car si l'url du post est erroné, il n'y a ni d'erreur lors fetch, ni données retournées, 
+	// donc la situation quand la variable orderDetail n'existe pas dans LocalStorage, 
+	// mais nous somme envoyé sur cette page de confirmation est possible 
+	
+	if (orderDetails !== '') { 
+		// Conversion de la somme en format Eur
 		const orderSumEur = new Intl.NumberFormat("fr", {
 			style: "currency",
 			currency: "EUR",
 			minimumFractionDigits: 2
 		}).format(orderDetails.orderSum/100);
 
+		//création de html-code qui sera placé dans div avec id="order-details"
 		document.getElementById('order-details').innerHTML = `
 			<div class="row">
 				<div class="col" >
@@ -25,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				</div>
 			</div>
 		`;
+		// suppresion des articles dans le panier et l'objectif de produit courant
 		localStorageUtil.deleteAllProductsFromCart();
 		localStorageUtil.deleteLensSelected();
 
@@ -36,5 +45,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		`;
 	}
-
 });

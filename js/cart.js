@@ -27,21 +27,20 @@ class Cart {
 				currency: "EUR",
 				minimumFractionDigits: 2
 			}).format(sum/100);
-					//<i class="bi bi-trash"></i>		
-		
+
 			htmlProducts +=`
-				<tr>
-					<td class="cart-element__name">
-						<div>${name}</div>
+				<div class = "row mt-2 p-2 cart-element" style = "border-bottom: 2px solid #6C757D!important;">
+					<div class="col-4 cart-element__name">
+						<div class="fw-bold">${name}</div>
 						<span>${lensSelected}</span>
-					</td>
-					<td class="cart-element__count">${count} x </td>
-					<td class = "cart-element__price">${priceEur}</td>
-					<td class="cart-element__sum">${sumEur}</td>
-					<td><button class = "btn cart-element__delete" style="background-color: #d4c7d2;"
+					</div>
+					<div class="col-1 col-sm-2 cart-element__count">${count} x </div>
+					<div class = "col-3 col-sm-2 cart-element__price text-end">${priceEur}</div>
+					<div class="col-4 col-sm-2 cart-element__sum text-end">${sumEur}</div>
+					<div class = "col-12 col-sm-2 cart-element__delete text-end"><button class = "btn cart-element__delete-btn" style="background-color: #d4c7d2;"
 						data-id ="${id}" data-lens ="${lensSelected}" 
-						onclick = "cartPage.deleteProduct(this)"><i class="far fa-trash-alt"></i></button></td>
-				</tr>			
+						onclick = "cartPage.deleteProduct(this)"><i class="far fa-trash-alt"></i></button></div>
+				</div>			
 			`;
 			sumTotal += price*count;
 		});
@@ -63,15 +62,11 @@ class Cart {
 
 		}
 		const html = `
-			<div>
-				<table>
-					${htmlProducts}
-					<td class = "cart-element__name">${text}</td>
-					<td class="cart-element__count"></td>
-					<td class="cart-element__sum"></td>
-					<td class = "cart-element__allsum" id="sumTotalEur">${textSumTotal}</td>
-				</table>
-			<div>
+			${htmlProducts}
+			<div class="row p-3">
+	 			<div class = "col-6 text-end ">${text}</div>
+				<div class = "col-6 text-start fw-bold" id="sumTotalEur">${textSumTotal}</div>
+			</div>
 		`;
 	
 		document.getElementById('cart-container').innerHTML = html;
