@@ -92,7 +92,7 @@ class LocalStorageUtil {
 	//--------fonctions pour la variable avec la clé productsInCart--------------- */
   // objet saufragdé - type array des Objets
 
-	// fonction qui retourne le nombre des articles différents dans le panier
+	// fonction qui retourne le nombre des articles différents dans le panier (quantité d'un article peut être >1)
 	getCountOfProductsTypeInCart() {
 		return this.getProductsInCart().length;
 	}
@@ -107,7 +107,7 @@ class LocalStorageUtil {
 		return count;
 	}
 
-	// fonction getProductsInCart retourne la liste des produits dans le panier 
+	// fonction getProductsInCart retourne un array des produits dans le panier 
 	//chaque élément de cette liste est un objet de classe Product décrite dans product.js
 	getProductsInCart() {
 		const productsLocalStorage = localStorage.getItem(this.keyName);
@@ -155,6 +155,7 @@ class LocalStorageUtil {
 		}
 		localStorage.setItem(this.keyName, JSON.stringify(productsInCart));
 	}
+
 	// fonction qui supprime toute la liste des produis stockés dans productsInCart
 	deleteAllProductsFromCart() {
 		localStorage.removeItem(this.keyName);
@@ -162,7 +163,7 @@ class LocalStorageUtil {
 
 
 	//--------fonctions pour la variable avec la clé lensSelected--------------- */
-	//  objet saufgardé - type String
+	//  objet saufgardé - type String -- get... - pour recevoir, put... pour ajouter ou modifier et delete... pour supprimer
 	getLensSelected() {
 		const lensSeleted = localStorage.getItem(this.keyLensSelected);
 		if (lensSeleted !== null) {
@@ -177,12 +178,13 @@ class LocalStorageUtil {
 			localStorage.setItem(this.keyLensSelected, value);
 		};
 	}
+
 	deleteLensSelected() {
 		localStorage.removeItem(this.keyLensSelected);
 	};
 
 	//--------fonctions pour la variable avec la clé orderDetails--------------- */
-	// objet saufragdé - type Objet 
+	// objet saufragdé - type Objet --	get... - pour recevoir, put... pour ajouter ou modifier et delete... pour supprimer
 	getOrderDetails() {
 		const orderDetails = localStorage.getItem(this.keyOrder);
 

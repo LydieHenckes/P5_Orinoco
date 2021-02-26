@@ -1,10 +1,15 @@
+/*-------------Class Products------------------- */
+// affiche les produits dans l'élément html avec id = "products"
 class Products {
-
+	// fonction render qui reçoit un array des objets en paramètres  
 	render(data) {
 		 
 		let htmlCatalog= '';
+		
+		// avec forEach, pour chaque élément de l'array le code html est crée avec des données correspondantes au propriétés _id, name, price, imageUrl, description des objet reçu
 		data.forEach(({ _id, name, price, imageUrl, description}) => {
 			const pageUrl = 'source/product.html?id='+_id;
+			//transformation de prix au format eur
 			const priceEur = new Intl.NumberFormat("fr", {
 				style: "currency",
 				currency: "EUR",
@@ -23,9 +28,8 @@ class Products {
 					</div>
 				</a>
 			`;
-
 		});
-
+		// capture de l'élément existant dans index.html ou le code html crée sera ajouté
 		document.getElementById('products').innerHTML = htmlCatalog;
 	}
 }

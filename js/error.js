@@ -31,4 +31,5 @@ class Error {
 	}
 };
 
+//création de l'instance de la classe Error
 const errorPage = new Error();
