@@ -56,7 +56,7 @@ class Product {
 		// init de description
 		document.querySelector('.product-details__description').textContent = this.description;
 		// init de prix
-		document.querySelector('.product-details__price').textContent ='Prix: ' + priceEur;
+		document.querySelector('.product-details__price').textContent ='Prix:  ' + priceEur;
 		
 		// les balises options pour la balise select sont ajoutées de façon dinamique (car la longeur de cette array peut varier)
 		let htmlSelect = '';
@@ -80,6 +80,19 @@ class Product {
 		document.title = `Orinoco | ${this.name}`
 	}
 	
+	//
+	showMessage() {
+		let htmlMessage =`
+			<div class = "message text-center">
+				<p>L'article a été ajouté dans le panier!</p>
+				<div class ="btn btn-secondary" onclick = "document.getElementById('message-container').classList.remove('_active')">OK</div>
+			</div>
+		`;
+	
+		document.getElementById('message-container').innerHTML = htmlMessage;
+		document.getElementById('message-container').classList.add('_active');
+	}
+
 }
 
 // init des variables

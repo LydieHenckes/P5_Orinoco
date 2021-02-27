@@ -63,13 +63,13 @@ async function addElementToCart(id, lensSelected) {
 			let product = new Product (res._id, res.name, res.imageUrl, res.description, res.price, res.lenses, lensSelected);
 			//aujout de product dans localStorage
 			addProduct = localStorageUtil.putProductInCart(product);
-		})
-		.catch(err => console.log(err))
-		.finally(() => {
 			if (addProduct) {
-				alert("l'article a été ajouté dans le panier!");
+				product.showMessage();
+				//alert("l'article a été ajouté dans le panier!");
 			};
 		})
+		.catch(err => console.log(err))
+
 }
 
 
