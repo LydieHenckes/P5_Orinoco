@@ -64,12 +64,11 @@ async function addElementToCart(id, lensSelected) {
 			//aujout de product dans localStorage
 			addProduct = localStorageUtil.putProductInCart(product);
 			if (addProduct) {
+				// affiche le message "L'article a été ajouté dans le panier!"
 				product.showMessage();
-				//alert("l'article a été ajouté dans le panier!");
 			};
 		})
 		.catch(err => console.log(err))
-
 }
 
 

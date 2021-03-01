@@ -80,7 +80,7 @@ class Product {
 		document.title = `Orinoco | ${this.name}`
 	}
 	
-	//
+	// fonction affiche le message L'article a été ajouté dans le panier! 
 	showMessage() {
 		let htmlMessage =`
 			<div class = "message text-center">
